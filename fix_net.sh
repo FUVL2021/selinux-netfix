@@ -2,12 +2,16 @@
 # ============================================================
 # fix_net.sh —— SELinux 网络缓存一键修复
 # ============================================================
-# 修复被 exploit（GhostLock / CVE-2026-43499 等）污染后的
+# 修复被 exploit（CVE-2026-43499 / GhostLock 等）污染后的
 # SELinux 网络缓存。
 #
 # 症状：permissive 下联网正常，enforcing 下断网 / App 闪退。
 # dmesg 里能看到：
 #   tcontext=u:object_r:unlabeled:s0 tclass=packet
+#
+# 适用范围：所有由 CVE-2026-43499 导致无法联网的设备，
+#           不限机型/厂商，只要内核是 GKI 即可。
+#           本脚本不含任何设备/内核偏移量，跨机型通用。
 #
 # 需要 root（或具备相应 SELinux 权限的域）执行。
 #
