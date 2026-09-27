@@ -4,7 +4,7 @@
  *
  * 背景
  * ----
- * 内核漏洞利用（如 GhostLock / CVE-2026-43499 这类 slide 攻击）在做
+ * 内核漏洞利用（如 CVE-2026-43499 / GhostLock 这类 slide 攻击）在做
  * 任意读写时，会连带破坏内核 slab cache，其中包括 SELinux 的三张
  * 网络缓存哈希表：
  *
@@ -16,6 +16,12 @@
  *     tcontext=u:object_r:unlabeled:s0 tclass=packet
  * 于是：permissive 下网络正常，enforcing 下断网 / App 因 lo socket
  * 被拒而闪退。
+ *
+ * 适用范围
+ * --------
+ * **所有由 CVE-2026-43499 导致无法联网的设备，不限机型/厂商**，
+ * 只要内核是 GKI（5.4 / 5.10 / 5.15 / 6.1+）。
+ * 本工具不依赖任何内核偏移量，跨设备直接可用。
  *
  * 修复
  * ----
