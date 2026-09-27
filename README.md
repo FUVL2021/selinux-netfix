@@ -39,7 +39,6 @@ tcontext=u:object_r:unlabeled:s0 tclass=packet
 1. `sel_netif` 等哈希表里的条目变成损坏 / 错误值
 2. 网络接口查不到正确标签 → 全部 fallback 到 `unlabeled`
 3. permissive 下网络正常（不拦截），**enforcing 下断网**（全被拒）
-4. 依赖 `lo` 本地 socket 通信的应用，一发起连接就被 AVC 拒绝 → **闪退**
 
 ### 为什么 `lo` 特别顽固
 
