@@ -182,8 +182,6 @@ dmesg | grep -i "avc.*lo" | tail   # 应为空
 | enforcing 下断网 | `sel_netif` 等缓存被 exploit 污染 | 重载策略 | 触发 `sel_netif_flush()` 清空污染缓存 |
 | `lo` 持续 unlabeled | 缓存清空后 `lo` 条目未重建 | `lo` down/up + 分配 IP | 触发接口重新注册和标签重分配 |
 | `cat` 报 EINVAL | 策略需原子写入 | 用 `dd` 大块写入 | 满足单次 `write()` 要求 |
-| 应用闪退 | `lo` 本地 socket 被拒 | 上述全套 | 恢复 `lo` 的正确 SELinux 上下文 |
-
 ---
 
 ## 七、目录结构
