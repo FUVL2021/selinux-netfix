@@ -1,6 +1,6 @@
 # 局域网联网修复工具（SELinux 网络缓存修复）
 
-> 修复被内核漏洞利用（exploit）污染后的 SELinux 网络缓存 —— 症状是 **permissive 下联网正常、enforcing 下断网 / App 闪退**。
+> 修复被内核漏洞利用（exploit）污染后的 SELinux 网络缓存 —— 症状是 **permissive 下联网正常、enforcing 下断网**。
 
 **作者：酷安 FUVL2210**
 
@@ -212,6 +212,5 @@ dmesg | grep -i "avc.*lo" | tail   # 应为空
 ## 九、作者
 
 - **酷安：FUVL2210**
-- GitHub：`FUVL2210`
 
 如有问题或改进建议，欢迎提 Issue / PR。
